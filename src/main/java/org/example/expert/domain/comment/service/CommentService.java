@@ -28,7 +28,7 @@ public class CommentService {
     @Transactional
     public CommentSaveResponse saveComment(AuthUser authUser, long todoId, CommentSaveRequest commentSaveRequest) {
         User user = User.fromAuthUser(authUser);
-        Todo todo = todoRepository.findById(todoId).orElseThrow(() ->
+        Todo todo = todoRepository.findTodoById(todoId).orElseThrow(() ->
                 new InvalidRequestException("Todo not found"));
 
         Comment newComment = new Comment(
