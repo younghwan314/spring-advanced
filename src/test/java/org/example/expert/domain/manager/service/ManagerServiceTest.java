@@ -61,7 +61,7 @@ class ManagerServiceTest {
 
         ManagerSaveRequest managerSaveRequest = new ManagerSaveRequest(managerUserId);
 
-        given(todoRepository.findById(todoId)).willReturn(Optional.of(todo));
+        given(todoRepository.findTodoById(todoId)).willReturn(Optional.of(todo));
 
         // when & then
         InvalidRequestException exception = assertThrows(InvalidRequestException.class, () ->
